@@ -6,6 +6,7 @@ from ray_utils import get_rays, get_ray_directions
 
 BOX_OFFSETS = torch.tensor([[[i, j, k] for i in [0, 1] for j in [0, 1] for k in [0, 1]]])
 
+
 def hash(coords, log2_hashmap_size):
     """
     coords: this function can process upto 7 dim coordinates
@@ -90,7 +91,7 @@ def get_voxel_vertices(xyz, bounding_box, resolution, log2_hashmap_size):
     # the coordinate of the voxel corresponding to the "bottom_left_idx"(grid index)
     voxel_min_vertex = bottom_left_idx * grid_size + box_min
 
-    # voxel_min_vertex + 1 voxel
+    # voxel_min_vertex + 1 voxel "top_right_idx"(grid index)
     voxel_max_vertex = voxel_min_vertex + torch.tensor([1.0, 1.0, 1.0]).to(grid_size.device) * grid_size
 
     # First get 8 surrounding points corresponding to the current point

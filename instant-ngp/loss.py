@@ -1,6 +1,6 @@
-from math import exp, log, floor
-import torch
 import pdb
+import torch
+from math import exp, log, floor
 
 from utils import hash
 
@@ -13,9 +13,11 @@ def total_variation_loss(embeddings, device, min_resolution, max_resolution, lev
     # Cube size to apply TV loss
     min_cube_size = min_resolution - 1
     max_cube_size = 50  # can be tuned
+
     if min_cube_size > max_cube_size:
         print("ALERT! min cuboid size greater than max!")
         pdb.set_trace()
+
     cube_size = torch.floor(torch.clip(resolution / 10.0, min_cube_size, max_cube_size)).int()
 
     # Sample cuboid

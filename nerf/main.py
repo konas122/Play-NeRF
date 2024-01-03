@@ -46,7 +46,7 @@ def main():
     num_pos = H * W * NUM_SAMPLES
 
     Module = TrainNeRF(8, num_pos, device)
-    Module.train(train_, batch_size, num_epoch=1)
+    # Module.train(train_, batch_size, num_epoch=1)
 
     render_video(Module.module, H, W, focal, batch_size)
 

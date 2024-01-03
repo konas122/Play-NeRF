@@ -17,10 +17,7 @@ args = {
     'N_rand': 1024,
 
     'multires': 10,
-    'log2_hashmap_size': 19,
-
-    'precrop_iters': 500,
-    'precrop_frac': 0.5
+    'log2_hashmap_size': 19
 }
 
 
