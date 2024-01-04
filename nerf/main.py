@@ -6,7 +6,7 @@ from train import *
 from loader import *
 from render import *
 
-K = 0.1
+K = 1
 
 
 def main():
@@ -18,20 +18,17 @@ def main():
     split_index = int(num_images * K)
 
     train_images = images[:split_index]
-    # val_images = images[split_index:]
 
     train_poses = poses[:split_index]
-    # val_poses = poses[split_index:]
 
     train_set = MyDataset(train_images, train_poses, focal)
-    # val_set = MyDataset(val_images, val_poses, focal)
 
     if torch.cuda.is_available():
         device = torch.device('cuda:0')
         prefetch_factor, batch_size = 4, 8
     else:
         try:
-            import torch_directmla
+            import torch_directml
             prefetch_factor, batch_size = 1, 1
             device = torch_directml.device()
         except ImportError:
@@ -46,7 +43,7 @@ def main():
     num_pos = H * W * NUM_SAMPLES
 
     Module = TrainNeRF(8, num_pos, device)
-    # Module.train(train_, batch_size, num_epoch=1)
+    Module.train(train_, batch_size, num_epoch=30)
 
     render_video(Module.module, H, W, focal, batch_size)
 

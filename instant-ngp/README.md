@@ -1,3 +1,9 @@
+# Instant-NGP
+
+## Dataset
+
+Download the nerf-synthetic dataset from here: [Google Drive](https://drive.google.com/drive/folders/1JDdLGDruGNXWnM1eqY1FNL9PlStjaKWi).
+
 ```shell
 data
 ├───chair
@@ -5,32 +11,18 @@ data
 │   ├───train
 │   └───val
 ├───drums
-│   ├───test
-│   ├───train
-│   └───val
+|
 ├───ficus
-│   ├───test
-│   ├───train
-│   └───val
+|
 ├───hotdog
-│   ├───test
-│   ├───train
-│   └───val
+|
 ├───lego
-│   ├───test
-│   ├───train
-│   └───val
+|
 ├───materials
-│   ├───test
-│   ├───train
-│   └───val
+|
 ├───mic
-│   ├───test
-│   ├───train
-│   └───val
+|
 └───ship
-    ├───test
-    ├───train
-    └───val
+
 ```
 

@@ -1,5 +1,14 @@
 # Play-NeRF
 
+## Dependencies
+
+- PyTorch
+- kornia
+- matplotlib
+- numpy
+- imageio
+- imageio-ffmpeg
+
 ## NeRF
 
 **Learn from:** [keras-io/nerf](https://keras.io/examples/vision/nerf/)
