@@ -11,18 +11,11 @@ data
 │   ├───train
 │   └───val
 ├───drums
-|
 ├───ficus
-|
 ├───hotdog
-|
 ├───lego
-|
 ├───materials
-|
 ├───mic
-|
 └───ship
 
 ```
-

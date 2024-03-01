@@ -9,7 +9,7 @@
 - imageio
 - imageio-ffmpeg
 
-## NeRF
+## Tiny-NeRF
 
 **Learn from:** [keras-io/nerf](https://keras.io/examples/vision/nerf/)
 
