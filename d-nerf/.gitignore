@@ -1,0 +1,6 @@
+.vs/
+.idea/
+.vscode/
+
+logs/*
+data/*
