@@ -37,11 +37,11 @@ class Embedder:
         return torch.cat([fn(inputs) for fn in self.embed_fns], -1)
 
 
-def get_embedder(args, input_dims):
+def get_embedder(input_dims):
     embed_kwargs = {
         'input_dims' : input_dims,
-        'max_freq_log2': args['multires'] - 1,
-        'num_freqs': args['multires'],
+        'max_freq_log2': 3,
+        'num_freqs': 4,
     }
     embedder_obj = Embedder(**embed_kwargs)
     embed = lambda x, eo=embedder_obj: eo.embed(x)

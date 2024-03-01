@@ -66,14 +66,14 @@ def run_network(inputs, viewdirs, frame_time, fn, embed_fn, embeddirs_fn, embedt
 
 
 def create_nerf(args):
-    embed_fn, input_ch = get_embedder(args, 3)
-    embedtime_fn, input_ch_time = get_embedder(args, 1)
+    embed_fn, input_ch = get_embedder(3)
+    embedtime_fn, input_ch_time = get_embedder(1)
 
     input_ch_views = 0
 
     # If use_viewdirs
     # common position embedder
-    embeddirs_fn, input_ch_views = get_embedder(args, 3)
+    embeddirs_fn, input_ch_views = get_embedder(3)
 
     model = DirectTemporalNeRF(input_ch=input_ch,
                                input_ch_views=input_ch_views,
@@ -212,13 +212,12 @@ def train(args):
     torch.save({
         'network_fn_state_dict': render_kwargs['network_fn'].state_dict(),
         'network_fine_state_dict': render_kwargs['network_fine'].state_dict(),
-        'embed_fn_state_dict': render_kwargs['embed_fn'].state_dict(),
         'optimizer_state_dict': optimizer.state_dict(),
     }, path)
 
     print(f'\nRendering ...\n')
     with torch.no_grad():
-        rgbs = render_path(render_poses, render_times, hwf, 4096, render_kwargs)
+        rgbs = render_path(render_poses, render_times, hwf, args['chunk'], render_kwargs)
     print('Done, saving', rgbs.shape)
     moviebase = os.path.join(args['savedir'], '_spiral_{:06d}_'.format(now))
     imageio.mimwrite(moviebase + 'rgb.mp4', to8b(rgbs), fps=30, quality=8)

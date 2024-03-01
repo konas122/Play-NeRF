@@ -17,7 +17,6 @@ args = {
     'N_rand': 500,
     'N_iter': 800000,
 
-    'multires': 4,
     'testskip': 1,
 }
 
@@ -29,7 +28,7 @@ def main():
         device = torch.device('cuda:0')
     else:
         try:
-            import torch_directmla
+            import torch_directml
             device = torch_directml.device()
         except ImportError:
             device = torch.device('cpu')
